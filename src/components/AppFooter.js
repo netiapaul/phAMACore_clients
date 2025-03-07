@@ -1,19 +1,24 @@
 import React from 'react'
+// import CompanyRight from '../assets/images/corebase.png'
 import { CFooter } from '@coreui/react'
 
 const AppFooter = () => {
   return (
-    <CFooter className="px-4">
+    <CFooter className="px-4 mt-2">
       <div>
-        <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
-          CoreUI
-        </a>
-        <span className="ms-1">&copy; 2025 creativeLabs.</span>
+        <span>phAMAcore</span>
+        <span className="ms-1">&copy; {new Date().getFullYear()}</span>
       </div>
       <div className="ms-auto">
         <span className="me-1">Powered by</span>
-        <a href="https://coreui.io/react" target="_blank" rel="noopener noreferrer">
-          CoreUI React Admin &amp; Dashboard Template
+        {/* <img width="15" className="img-fluid" src={CompanyRight} alt="company brand" /> */}
+        <a
+          href="corebase.co.ke"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="company-color"
+        >
+          Corebase Solutions
         </a>
       </div>
     </CFooter>
