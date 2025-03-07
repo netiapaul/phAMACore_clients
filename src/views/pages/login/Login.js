@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
+import { useNavigate } from 'react-router'
+import toast from 'react-hot-toast'
 import CompanyRight from '../../../assets/images/corebase.png'
 import { AuthLoginUSer } from '../../../../utils/services/services_api'
-import { AlertError } from '../../../UI/alerts/alert'
+import { AlertError } from '../../../UI/alert'
 import { extractErrorMessages } from '../../../../utils/functions'
-import { useNavigate } from 'react-router'
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -47,6 +48,7 @@ const Login = () => {
       AuthLoginUSer(values)
         .then((data) => {
           setIsLoading(false)
+          toast.success(data.message)
           navigate('/dashboard', { state: { user: data }, replace: true })
           localStorage.setItem('authUser', JSON.stringify(data))
         })

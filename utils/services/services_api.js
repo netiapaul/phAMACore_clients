@@ -1,5 +1,5 @@
 // import axios from 'axios'
-import { post } from '../config'
+import { post, get } from '../config'
 
 // Register Method
 // export const AuthLoginUSer = (data) => {
@@ -56,7 +56,16 @@ export const AuthLoginUSer = async (data) => {
   try {
     return await post(`${import.meta.env.VITE_API_ENDPOINT}/api/Auth/Login`, data)
   } catch (error) {
-    // const errorResponse = error.response || { data: 'An unknown error occurredasd' }
+    return Promise.reject(error)
+  }
+}
+// Get Clients
+export const GetClients = async (clientType) => {
+  try {
+    return await get(`/api/Clients/GetClients`, {
+      params: { forcloundch: clientType },
+    })
+  } catch (error) {
     return Promise.reject(error)
   }
 }

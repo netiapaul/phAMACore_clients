@@ -4,7 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom'
 
 const DefaultLayout = () => {
   const location = useLocation()
-  const { user } = location.state
+  const user = location.state?.user || JSON.parse(localStorage.getItem('authUser'))
 
   if (!user) return <Navigate to={'/'} />
 

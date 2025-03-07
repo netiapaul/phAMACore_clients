@@ -2,15 +2,20 @@ import axios from 'axios'
 
 // Set config defaults when creating the instance
 const axiosInstance = axios.create({
-  baseURL: 'https://api.example.com',
+  baseURL: `${import.meta.env.VITE_API_ENDPOINT}`,
 })
 
 // Alter defaults after instance has been created
-axiosInstance.defaults.headers.common['Authorization'] = 'AUTH_TOKEN'
+// axiosInstance.defaults.headers.common['Authorization'] = 'AUTH_TOKEN'
 
 // Add a request interceptor
 axiosInstance.interceptors.request.use(
   function (config) {
+    config.headers.accessKey = `R0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9`
+    const token = JSON.parse(localStorage.getItem('authUser'))?.accessToken // Get latest token
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
     // Do something before request is sent
     return config
   },
