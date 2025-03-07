@@ -1,7 +1,14 @@
 import React from 'react'
 import { AppContent, AppSidebar, AppFooter, AppHeader } from '../components/index'
+import { Navigate, useLocation } from 'react-router-dom'
 
 const DefaultLayout = () => {
+  const location = useLocation()
+  const { user } = location.state
+
+  if (!user) return <Navigate to={'/'} />
+
+  // console.log(user)
   return (
     <div>
       <AppSidebar />

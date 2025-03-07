@@ -47,8 +47,7 @@ const Login = () => {
       AuthLoginUSer(values)
         .then((data) => {
           setIsLoading(false)
-          navigate('/dashboard', { state: { user: data.user }, replace: true })
-          console.log(data)
+          navigate('/dashboard', { state: { user: data }, replace: true })
           localStorage.setItem('authUser', JSON.stringify(data))
         })
         .catch((err) => {
