@@ -105,19 +105,19 @@ body {
 // }
 
 .login-btn {
-  padding: 10px 20px;
+  padding: 10px 20px !important;
   // background-color: #007bff;
-  background-color: $company-color;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+  background-color: $company-color !important;
+  color: #fff !important;
+  border: none !important;
+  cursor: pointer !important;
 }
 
-.login-btn:hover {
-  // background-color: #0056b3;
-  background-color: $company-color;
-  color: #fff;
-}
+// .login-btn:hover {
+  //   // background-color: #0056b3;
+  //   background-color: $company-color;
+  //   color: #fff;
+  // }
 
 .company_text_color {
   color: $company-color;

@@ -4,6 +4,7 @@ import CompanyRight from '../../../assets/images/corebase.png'
 import { AuthLoginUSer } from '../../../../utils/services/services_api'
 import { AlertError } from '../../../UI/alerts/alert'
 import { extractErrorMessages } from '../../../../utils/functions'
+import { useNavigate } from 'react-router'
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -29,8 +30,10 @@ const Login = () => {
   //meta title
   document.title = 'Login | phAMACore'
 
+  const navigate = useNavigate()
+
   const [errors, setErrors] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -44,7 +47,9 @@ const Login = () => {
       AuthLoginUSer(values)
         .then((data) => {
           setIsLoading(false)
+          navigate('/dashboard', { state: { user: data.user }, replace: true })
           console.log(data)
+          localStorage.setItem('authUser', JSON.stringify(data))
         })
         .catch((err) => {
           const errorMessage = extractErrorMessages(err)
