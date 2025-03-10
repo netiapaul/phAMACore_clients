@@ -54,7 +54,7 @@ import { post, get } from '../config'
 // Login Method
 export const AuthLoginUSer = async (data) => {
   try {
-    return await post(`${import.meta.env.VITE_API_ENDPOINT}/api/Auth/Login`, data)
+    return await post(`/api/Auth/Login`, data)
   } catch (error) {
     return Promise.reject(error)
   }

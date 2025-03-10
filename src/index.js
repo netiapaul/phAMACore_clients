@@ -5,6 +5,9 @@ import 'core-js'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Toaster } from 'react-hot-toast'
+import { PrimeReactProvider } from 'primereact/api'
+// import 'primereact/resources/themes/lara-light-cyan/theme.css'
+import 'primereact/resources/themes/fluent-light/theme.css'
 
 import App from './App'
 import store from './store'
@@ -22,7 +25,9 @@ createRoot(document.getElementById('root')).render(
       containerStyle={{}}
     />
     <Provider store={store}>
-      <App />
+      <PrimeReactProvider>
+        <App />
+      </PrimeReactProvider>
     </Provider>
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>,

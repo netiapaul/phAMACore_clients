@@ -7,6 +7,8 @@
 
 $company-color: #C58C4f;
 $company-color-variant: #5d3915;
+$danger-color: #ff3547;
+$success-color: #1b9e3e;
 
 body {
   background-color: var(--cui-tertiary-bg);
@@ -167,4 +169,95 @@ body {
   background-repeat: no-repeat;
   background-position: right calc(.375em + .1875rem) center;
   background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.p-datatable .p-datatable-header {
+  background: #ffffff;
+  color: #323130;
+  border: 1px solid #ffffff00;
+  border-width: 1px 0 1px 0;
+  padding: 0 0 .75rem 0;
+  font-weight: 600;
+}
+
+.search-field-input {
+  font-size: 12px !important;
+  box-sizing: border-box !important;
+  background-color: rgba(229, 229, 229, 0.5) !important;
+  width: 200px !important;
+  border-radius: 3px !important;
+}
+
+.search-field-input::placeholder {
+  font-size: 12px !important;
+  color: rgb(187, 187, 187) !important;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-thead>tr>th {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 10px !important;
+  padding: 0.35rem 0.35rem !important;
+  background-color: rgb(229, 229, 229) !important;
+  color: #000000 !important;
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody>tr>td {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 10px !important;
+  padding: 0.2rem 0.2rem !important;
+  // color: #000000DE !important;
+  color: #000000 !important;
+}
+
+.p-datatable .p-datatable-tbody>tr.p-highlight {
+  background: rgba(200, 194, 189, 0.5) !important;
+  font-weight: 600 !important;
+  // color: #0e7490 !important;
+}
+
+.p-datatable.p-datatable-selectable .p-datatable-tbody>tr.p-selectable-row:focus-visible {
+  // outline: 0.15rem solid #c8bdb1 !important;
+  outline: 0.15rem solid $company-color !important;
+  outline-offset: -0.15rem;
+}
+
+.p-datatable .p-datatable-tbody>tr>td {
+  border: 1px solid #e5e7eb;
+}
+
+.p-paginator .p-paginator-current {
+  font-size: 12px !important;
+  // color: $company-color !important;
+}
+
+.p-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+}
+
+.p-dropdown-items-wrapper .p-dropdown-items {
+  padding-left: 0;
+}
+
+.p-inline-message-error .p-inline-message-text {
+  font-size: 1rem !important;
+}
+
+.batched-doc {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: $success-color;
+  margin: auto;
+
+}
+
+.unbatched-doc {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: $danger-color;
+  margin: auto;
 }
