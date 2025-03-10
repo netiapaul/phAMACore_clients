@@ -49,7 +49,7 @@ const Login = () => {
         .then((data) => {
           setIsLoading(false)
           toast.success(data.message)
-          navigate('/dashboard', { state: { user: data }, replace: true })
+          navigate('/clients/clients', { state: { user: data }, replace: true })
           localStorage.setItem('authUser', JSON.stringify(data))
         })
         .catch((err) => {

@@ -5,8 +5,9 @@ import { Column } from 'primereact/column'
 import { FilterMatchMode } from 'primereact/api'
 import { GetClients } from '../../../utils/services/services_api'
 import { formatDate } from '../../../utils/functions'
+import { Link } from 'react-router-dom'
 
-export default function Dashboard() {
+export default function Clients() {
   document.title = 'Clients | phAMACore'
 
   const [tableData, setTableDate] = useState({
@@ -24,9 +25,16 @@ export default function Dashboard() {
     error: clientError,
   } = useQuery({
     queryKey: ['clients'],
-    queryFn: () => GetClients(''),
+    queryFn: () => GetClients(true),
   })
 
+  const IDBodyTemplate = (rowData) => {
+    return (
+      <Link to={`/clients/client-details/${rowData?.id}`} className="fw-medium">
+        {rowData?.id}
+      </Link>
+    )
+  }
   const ExpiryDateTemplate = (rowData) => {
     return formatDate(new Date(rowData.psActivateExpiryDate))
   }
@@ -125,6 +133,7 @@ export default function Dashboard() {
             selection={tableData.selectedProduct}
             onSelectionChange={(e) => handleSelect(e)}
           >
+            <Column field="id" header="ID" body={IDBodyTemplate}></Column>
             <Column field="psCusCode" header="Acct"></Column>
             <Column field="psCompanyName" header="AcctName"></Column>
             <Column field="branchCode" header="Bcode"></Column>
@@ -159,6 +168,22 @@ export default function Dashboard() {
             ></Column>
             <Column field="packageName" header="PackageName"></Column>
           </DataTable>
+
+          {/*  <input
+                type="password"
+                className={`form-control form-control-sm ${handleError(formik.touched.confpassword && formik.errors.confpassword)}`}
+                id="confpassword"
+                onChange={formik.handleChange}
+                name="confpassword"
+                value={formik.values.confpassword}
+                onBlur={formik.handleBlur}
+              />
+              <i
+                toggle="#password-field"
+                className="mdi mdi-eye-off-outline field-icon toggle-password"
+                role="button"
+                onClick={() => alert('erwer')}
+              ></i> */}
         </div>
       </div>
     </>
